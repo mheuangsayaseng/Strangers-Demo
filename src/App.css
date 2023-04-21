@@ -1,0 +1,140 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Kanit', sans-serif;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 25px;
+}
+
+.navigation h1 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 30pt;
+  margin-right: auto;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  text-transform: uppercase;
+}
+
+.user-content,
+.createPost-content {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-content,
+.createPost-content, h1 {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.user-form,
+.createPost-form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  background-color: darkgray;
+  box-shadow: 0 4px 10px black;
+  padding: 40px;
+
+}
+
+.user-form,
+.createPost-form, label {
+  margin-bottom: 5px;
+  font-size: 12pt;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.user-form input{
+  border: none;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+button {
+  font-size: 12pt;
+  color:white;
+  background: darkblue;
+  padding: 10px 52px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px -2px black;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(51, 51, 117);
+}
+
+.posts-content {
+  margin-top: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  justify-content: space-evenly;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background-color:white;
+  box-shadow: 0 4px 10px black;
+  width: 500px;
+  margin: 1rem;
+}
+
+.post-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: darkblue;
+  color: white;
+  letter-spacing:  1px;
+  text-transform: uppercase;
+}
+
+.post-title {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.post-description {
+  display: flex;
+  height: 75px;
+  padding:10px;
+}
+
+.post-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px;
+  background-color: darkblue;
+  color: gold;
+}
+
+.createPost-form input {
+  margin-bottom: 10px;
+}
