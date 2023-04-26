@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { registerUser } from "../api";
+import useAuth from "../hooks/useAuth";
 
-export default function RegisterForm({ setToken }) {
+export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setToken } = useAuth()
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +18,6 @@ export default function RegisterForm({ setToken }) {
     } catch (error) {
       console.log("Error for Registering User: ", error);
     }
-    console.log({ username, password });
   }
 
   return (

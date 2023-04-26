@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { userLogin } from "../api";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
-export default function LoginForm ({setToken}) {
+export default function LoginForm () {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const { setToken } = useAuth()
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -12,7 +16,8 @@ export default function LoginForm ({setToken}) {
             const result = await userLogin(username, password);
             console.log("Result of User Login", result);
             setToken(result.data.token);
-            localStorage.setItem("token", result.data.token)
+            localStorage.setItem("token", result.data.token);
+            navigate('/all-posts');
         } catch (error) {
             console.log("Error for User Login: ", error);
         }
@@ -38,7 +43,8 @@ export default function LoginForm ({setToken}) {
             />
             <button>Submit</button>
             <br></br>
-            <Link style={{color:"white"}} to="register-user">Create New Account</Link>
+            <p>Don't have an account?</p>
+            <Link style={{color:"white"}} to="register-user">Sign Up Now!</Link>
             </form>
         </div>
     );

@@ -45,6 +45,22 @@ export async function userLogin(username, password) {
   }
 }
 
+export async function fetchMe(token) {
+  try {
+    const response = await fetch(`${BASE_URL}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    console.log("result in fetchMe: ", result);
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function fetchAllPost() {
   try {
     const response = await fetch(`${BASE_URL}/posts`);
@@ -73,6 +89,23 @@ export async function createPost(title, description, price, token) {
       }),
     });
 
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function deletePost(title, description, price) {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const result = await response.json();
     console.log(result);
     return result;

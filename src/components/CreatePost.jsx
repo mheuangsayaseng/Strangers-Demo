@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createPost } from "../api";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
-export default function CreatePost({token}) {
+export default function CreatePost() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const { token } = useAuth();
 
   return (
     <div className="createPost-content">
@@ -25,7 +27,7 @@ export default function CreatePost({token}) {
             onChange={(event) => setTitle(event.target.value)}
           />
         <label>Description:</label>
-          <textarea
+          <input
             style={{marginBottom:"5px", height: "150px"}}
             value={description}
             onChange={(event) => setDescription(event.target.value)}

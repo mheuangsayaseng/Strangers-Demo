@@ -16,7 +16,7 @@ export default function AllPosts() {
     <div className="posts-content">
       {posts.map((posts) => {
         return (
-          <div className="post-card" key={posts.author.username}>
+          <div className="post-card" key={posts._id}>
             <h1 className="post-name"><span>Username: {posts.author.username}</span><i style={{padding:"5px", color:"gold"}} className="material-icons">bookmark_add</i></h1>
             <h2 className="post-title">Title: {posts.title}</h2>
             {/* <img src="https://emojis.wiki/thumbs/emojis/panda.webp"/> */}
