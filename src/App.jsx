@@ -1,37 +1,42 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "./components/AuthPorvider";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import "./App.css";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
-import Logout from "./components/LogOut";
+import MyProfile from "./components/MyProfile";
 import AllPost from "./components/AllPosts";
 import CreatePost from "./components/CreatePost";
 import useAuth from "./hooks/useAuth";
 
-function App() {
-    const { token } = useAuth();
 
-    console.log("Token from App.jsx", token);
+function App() {
+    const { token, user, setToken } = useAuth();
+    const navigate = useNavigate();
 
     return (
         <div className="App">
             <header className="navigation">
-                <h1>Welcome to Stranger's Things</h1>
+                <h1>Welcome to Stranger's Things {token ? <p>{user.username}</p> : null}</h1>
                 <h3 className="navLinks">
                     <Link style={{color:"red"}} to="/">Login</Link>
+
                     {token && (
-                        <Link style={{color:"orange"}}>My Profile</Link>
+                        <Link style={{color:"yellow"}} to="/my-profile">My Profile</Link>
                     )}
-                    {token && (
-                    <Link style={{color:"yellow"}}>Message Board</Link>
-                    )}
+
                     <Link style={{color:"aquamarine"}} to="/all-posts">All Posts</Link>
+
                     {token && (
                     <Link style={{color:"deepskyblue"}} to="/create-post">Create Post</Link>
                     )}
+
                     {token && (
-                    <Link style={{color:"darkorchid"}}>Log Out</Link>
+                    <button className="LogOut-Btn"
+                        onClick={()=> {
+                            setToken(null);
+                            localStorage.removeItem("token");
+                            navigate("/");
+                        }}
+                    >Log Out</button>
                     )}
                 </h3>
             </header>
@@ -40,7 +45,7 @@ function App() {
                 <Route path="/all-posts" element={<AllPost />} />
                 <Route path="/create-post" element={<CreatePost />} />
                 <Route path="/register-user" element={<RegisterForm />} />
-                <Route path="/logout" element={<Logout />} />
+                <Route path="/my-profile" element={<MyProfile />} />
             </Routes>
         </div>
     );

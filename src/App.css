@@ -69,6 +69,10 @@ body {
   padding: 5px;
 }
 
+.material-icons:hover {
+  cursor: pointer;
+}
+
 button {
   font-size: 12pt;
   color:white;
@@ -81,6 +85,16 @@ button {
 button:hover {
   cursor: pointer;
   background-color: rgb(51, 51, 117);
+}
+
+.LogOut-Btn {
+  font-size: 13pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
+  width: 150px;
+  background: darkorchid;
+  box-shadow: 0 2px 5px -2px white;
 }
 
 .posts-content {
@@ -106,6 +120,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  padding-left: 10px;
   background-color: darkblue;
   color: white;
   letter-spacing:  1px;
@@ -128,9 +143,10 @@ button:hover {
 
 .post-price {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
+  padding-right: 15px;
   background-color: darkblue;
   color: gold;
 }

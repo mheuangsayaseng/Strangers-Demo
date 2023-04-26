@@ -27,7 +27,7 @@ export default function CreatePost() {
             onChange={(event) => setTitle(event.target.value)}
           />
         <label>Description:</label>
-          <input
+          <textarea
             style={{marginBottom:"5px", height: "150px"}}
             value={description}
             onChange={(event) => setDescription(event.target.value)}
