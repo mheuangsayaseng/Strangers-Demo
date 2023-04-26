@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
   // const navigate = useNavigate();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
   useEffect(() => {
     async function getPosts() {
@@ -19,28 +19,30 @@ export default function AllPosts() {
 
   return (
     <div className="posts-content">
-      {posts.map((posts) => {
+      {posts.map((post) => {
         return (
-          <div className="post-card" key={posts._id}>
-            <h1 className="post-name"><span>Username: {posts.author.username}</span><i style={{padding:"5px", color:"gold"}} className="material-icons">message</i></h1>
-            <h2 className="post-title">Title: {posts.title}</h2>
+          <div className="post-card" key={post._id}>
+            <h1 className="post-name"><span>Username: {post.author.username}</span><i style={{padding:"5px", color:"gold"}} className="material-icons">message</i></h1>
+            <h2 className="post-title">Title: {post.title}</h2>
             {/* <img src="https://emojis.wiki/thumbs/emojis/panda.webp"/> */}
-            <p className="post-description"> {posts.description}</p>
+            <p className="post-description"> {post.description}</p>
             <h2 className="post-price">
-              <i 
-              style={{padding:"5px", fontSize:"30px", color:"gold"}} 
-              className="material-icons"
-              onClick={async () => {
-                await deletePosts(token, posts._id);
-                const response = await fetchAllPost();
-                if(response.success) {
-                  setPosts(response.data.posts);
-                } else {
-                  setError(response.error);
-                }
-              }}
-              >delete_outline</i>
-              <span>Price: {posts.price}</span></h2>
+              {user._id === post.author._id && (
+                <i 
+                style={{padding:"5px", fontSize:"30px", color:"gold"}} 
+                className="material-icons"
+                onClick={async () => {
+                  await deletePosts(token, post._id);
+                  const response = await fetchAllPost();
+                  if(response.success) {
+                    setPosts(response.data.posts);
+                  } else {
+                    setError(response.error);
+                  }
+                }}
+                >delete_outline</i>
+              )}
+              <span>Price: {post.price}</span></h2>
           </div>
         )
       })}

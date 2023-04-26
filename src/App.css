@@ -146,7 +146,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  padding-right: 15px;
+  padding-left: 15px;
   background-color: darkblue;
   color: gold;
 }
