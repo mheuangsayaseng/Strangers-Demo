@@ -24,11 +24,12 @@ export default function CreatePost() {
           <input
             type="text"
             value={title}
+            style={{padding:"5px"}}
             onChange={(event) => setTitle(event.target.value)}
           />
         <label>Description:</label>
           <textarea
-            style={{marginBottom:"5px", height: "150px"}}
+            style={{marginBottom:"5px", height: "150px", padding:"5px"}}
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
@@ -36,6 +37,7 @@ export default function CreatePost() {
           <input
             type="text"
             value={price}
+            style={{padding:"5px"}}
             onChange={(event) => setPrice(event.target.value)}
           />
           <br></br>

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchAllPost } from "../api";
 import { deletePosts } from "../api";
-// import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { token, user } = useAuth();
 
   useEffect(() => {
@@ -22,11 +22,12 @@ export default function AllPosts() {
       {posts.map((post) => {
         return (
           <div className="post-card" key={post._id}>
-            <h1 className="post-name"><span>Username: {post.author.username}</span><i style={{padding:"5px", color:"gold"}} className="material-icons">message</i></h1>
-            <h2 className="post-title">Title: {post.title}</h2>
+            <h1 className="post-name"><span>Username: {post.author.username}</span><i onClick={() => {navigate(`/create_message`);}} style={{padding:"5px", color:"gold"}} className="material-icons">message</i></h1>
+            <h2 className="post-title">{post.title}</h2>
             {/* <img src="https://emojis.wiki/thumbs/emojis/panda.webp"/> */}
             <p className="post-description"> {post.description}</p>
             <h2 className="post-price">
+              <span>Price: {post.price}</span>
               {user._id === post.author._id && (
                 <i 
                 style={{padding:"5px", fontSize:"30px", color:"gold"}} 
@@ -42,7 +43,7 @@ export default function AllPosts() {
                 }}
                 >delete_outline</i>
               )}
-              <span>Price: {post.price}</span></h2>
+            </h2>
           </div>
         )
       })}

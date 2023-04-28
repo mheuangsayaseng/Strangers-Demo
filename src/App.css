@@ -29,6 +29,76 @@ body {
   text-transform: uppercase;
 }
 
+.main-page {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.my-posts {
+  display: flex;
+  width: 600px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.my-card {
+  display: flex;
+  flex-direction: column;
+  background-color:white;
+  box-shadow: 0 4px 10px black;
+  width: 250px;
+  margin: 1rem;
+}
+
+.my-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-card {
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  width: 500px;
+  box-shadow: 0 4px 10px black;
+}
+
+.fromUser-name {
+  display: flex;
+  padding-left: 10px;
+  background-color: black;
+  color: white;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px 0;
+  background-color: darkgray;
+}
+
+.content-message {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+  color: white;
+}
+
+.relavent-post {
+  display: flex;
+  padding-right: 15px;
+  flex-direction: row-reverse;
+  background-color: white;
+  color: darkorchid;
+}
+
 .user-content,
 .createPost-content {
   height: 75vh;
@@ -101,8 +171,9 @@ button:hover {
   margin-top: 35px;
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: row; */
+  flex-direction: row;
   justify-content: space-evenly;
+  /* align-content: center; */
 }
 
 .post-card {
@@ -127,16 +198,22 @@ button:hover {
   text-transform: uppercase;
 }
 
-.post-title {
+.post-title,
+.my-title,
+.my-description,
+.my-price {
   display: flex;
   padding: 5px;
   align-items: center;
   justify-content: center;
   background-color: white;
+  text-transform: uppercase;
 }
 
 .post-description {
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 75px;
   padding:10px;
 }

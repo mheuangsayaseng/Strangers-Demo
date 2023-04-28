@@ -97,22 +97,6 @@ export async function createPost(title, description, price, token) {
   }
 }
 
-// export async function fetchAuthPosts(token) {
-//   try {
-//     const response = await fetch(`${BASE_URL}/posts`, {
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     const result = await response.json();
-//     console.log(result);
-//     return result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 export async function deletePosts(token, postId) {
   console.log("deletePosts", token);
   try {
@@ -128,5 +112,27 @@ export async function deletePosts(token, postId) {
     return result;
   } catch (err) {
     console.error(err);
+  }
+}
+
+export async function messagePost(content, token, postId) {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        message: {
+          content,
+        },
+      }),
+    });
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.error(error);
   }
 }

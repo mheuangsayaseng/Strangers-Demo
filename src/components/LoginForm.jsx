@@ -8,7 +8,7 @@ export default function LoginForm () {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const { setToken } = useAuth()
+    const { setToken } = useAuth();
 
     async function handleSubmit(e) {
         e.preventDefault();
