@@ -17,7 +17,7 @@ export default function LoginForm () {
             console.log("Result of User Login", result);
             setToken(result.data.token);
             localStorage.setItem("token", result.data.token);
-            navigate('/all-posts');
+            navigate('/posts');
         } catch (error) {
             console.log("Error for User Login: ", error);
         }
@@ -44,7 +44,7 @@ export default function LoginForm () {
             <button>Submit</button>
             <br></br>
             <p>Don't have an account?</p>
-            <Link style={{color:"white"}} to="register-user">Sign Up Now!</Link>
+            <Link style={{color:"white"}} to="/users/register">Sign Up Now!</Link>
             </form>
         </div>
     );

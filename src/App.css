@@ -80,6 +80,7 @@ body {
   flex-direction: column;
   padding: 5px 10px 0;
   background-color: darkgray;
+  border: none;
 }
 
 .content-message {

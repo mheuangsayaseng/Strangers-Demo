@@ -26,7 +26,7 @@ export default function AllPosts() {
             <h1 className="post-name">
               <span>Username: {post.author.username}</span>
               {token && (
-                <i onClick={() => {navigate(`/message-post`);}} style={{padding:"5px", color:"gold"}} className="material-icons">message</i>
+                <i onClick={() => {navigate(`/message/${post._id}`);}} style={{padding:"5px", color:"gold"}} className="material-icons">message</i>
               )}
             </h1>
 
@@ -40,7 +40,8 @@ export default function AllPosts() {
                 <i 
                 style={{padding:"5px", fontSize:"30px", color:"gold"}} 
                 className="material-icons"
-                onClick={async () => {
+                onClick={async (e) => {
+                  e.preventDefault();
                   await deletePosts(token, post._id);
                   const response = await fetchAllPost();
                   if(response.success) {

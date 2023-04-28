@@ -18,13 +18,13 @@ function App() {
             <header className="navigation">
                 <h1>Welcome to Stranger's Things {token ? <p>{user.username}</p> : null}</h1>
                 <h3 className="navLinks">
-                    <Link style={{color:"red"}} to="/">Login</Link>
+                    <Link style={{color:"red"}} to="/users/login">Login</Link>
 
                     {token && (
-                        <Link style={{color:"yellow"}} to="/my-profile">My Profile</Link>
+                        <Link style={{color:"yellow"}} to="/users/me">My Profile</Link>
                     )}
 
-                    <Link style={{color:"aquamarine"}} to="/all-posts">All Posts</Link>
+                    <Link style={{color:"aquamarine"}} to="/posts">All Posts</Link>
 
                     {token && (
                     <Link style={{color:"deepskyblue"}} to="/create-post">Create Post</Link>
@@ -35,19 +35,19 @@ function App() {
                         onClick={()=> {
                             setToken(null);
                             localStorage.removeItem("token");
-                            navigate("/");
+                            navigate("/users/login");
                         }}
                     >Log Out</button>
                     )}
                 </h3>
             </header>
             <Routes>
-                <Route path="/" element={<LoginForm />} />
-                <Route path="/all-posts" element={<AllPost />} />
+                <Route path="/users/login" element={<LoginForm />} />
+                <Route path="/posts" element={<AllPost />} />
                 <Route path="/create-post" element={<CreatePost />} />
-                <Route path="/register-user" element={<RegisterForm />} />
-                <Route path="/my-profile" element={<MyProfile />} />
-                <Route path="/message-post" element={<Message/>} />
+                <Route path="/users/register" element={<RegisterForm />} />
+                <Route path="/users/me" element={<MyProfile />} />
+                <Route path="/message/:postId" element={<Message/>} />
             </Routes>
         </div>
     );

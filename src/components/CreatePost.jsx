@@ -18,7 +18,7 @@ export default function CreatePost() {
       <form className="createPost-form" onSubmit={async (e) => {
         e.preventDefault();
         await createPost(title, description, price, token);
-        navigate('/all-posts');
+        navigate('/posts');
       }}>
         <label>Title:</label>
           <input

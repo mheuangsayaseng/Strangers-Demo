@@ -7,15 +7,15 @@ import { useNavigate } from "react-router-dom";
 export default function Message() {
     const navigate = useNavigate();
     const { postId } = useParams();
-    const [content, setContent] = useState("");
+    const [message, setMessage] = useState("");
     const { token } = useAuth();
 
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const response = await messagePost(postId, token, content);
-            setContent(response);
-            navigate('/all-posts');
+            const response = await messagePost(postId, token, message);
+            setMessage(response);
+            navigate('/posts');
         } catch (error) {
             console.log(error)
         }
@@ -31,8 +31,8 @@ export default function Message() {
                 <textarea
                     type="text"
                     style={{marginBottom:"5px", height: "150px", padding:"10px"}}
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                 />
                 <br></br>
                 <button type="submit">Send Message</button>

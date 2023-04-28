@@ -17,7 +17,7 @@ export default function RegisterForm() {
       console.log("Result of Registering User", result);
       setToken(result.data.token);
       localStorage.setItem("token", result.data.token)
-      navigate('/');
+      navigate('/users/login');
     } catch (error) {
       console.log("Error for Registering User: ", error);
     }

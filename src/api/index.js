@@ -115,7 +115,7 @@ export async function deletePosts(token, postId) {
   }
 }
 
-export async function messagePost(content, token, postId) {
+export async function messagePost(postId, token, message) {
   try {
     const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
       method: "POST",
@@ -125,7 +125,7 @@ export async function messagePost(content, token, postId) {
       },
       body: JSON.stringify({
         message: {
-          content,
+          content: message,
         },
       }),
     });
