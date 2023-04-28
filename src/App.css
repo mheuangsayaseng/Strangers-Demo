@@ -100,7 +100,8 @@ body {
 }
 
 .user-content,
-.createPost-content {
+.createPost-content,
+.messagePost-content {
   height: 75vh;
   display: flex;
   flex-direction: column;
@@ -114,6 +115,7 @@ body {
   margin-bottom: 15px;
 }
 
+.messagePost-form,
 .user-form,
 .createPost-form {
   display: flex;
@@ -215,14 +217,13 @@ button:hover {
   align-items: center;
   justify-content: center;
   height: 75px;
-  padding:10px;
+  padding: 10px;
 }
 
 .post-price {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
   padding-left: 15px;
   background-color: darkblue;
   color: gold;

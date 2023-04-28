@@ -13,7 +13,7 @@ export default function CreatePost() {
   return (
     <div className="createPost-content">
 
-      <h1 className="greeting">Hello Stranger</h1>
+      <h1 className="greeting">New Post</h1>
 
       <form className="createPost-form" onSubmit={async (e) => {
         e.preventDefault();

@@ -22,10 +22,18 @@ export default function AllPosts() {
       {posts.map((post) => {
         return (
           <div className="post-card" key={post._id}>
-            <h1 className="post-name"><span>Username: {post.author.username}</span><i onClick={() => {navigate(`/create_message`);}} style={{padding:"5px", color:"gold"}} className="material-icons">message</i></h1>
+
+            <h1 className="post-name">
+              <span>Username: {post.author.username}</span>
+              {token && (
+                <i onClick={() => {navigate(`/message-post`);}} style={{padding:"5px", color:"gold"}} className="material-icons">message</i>
+              )}
+            </h1>
+
             <h2 className="post-title">{post.title}</h2>
-            {/* <img src="https://emojis.wiki/thumbs/emojis/panda.webp"/> */}
+
             <p className="post-description"> {post.description}</p>
+
             <h2 className="post-price">
               <span>Price: {post.price}</span>
               {user._id === post.author._id && (
@@ -44,6 +52,7 @@ export default function AllPosts() {
                 >delete_outline</i>
               )}
             </h2>
+
           </div>
         )
       })}

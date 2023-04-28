@@ -5,6 +5,7 @@ import LoginForm from "./components/LoginForm";
 import MyProfile from "./components/MyProfile";
 import AllPost from "./components/AllPosts";
 import CreatePost from "./components/CreatePost";
+import Message from "./components/MessagePost";
 import useAuth from "./hooks/useAuth";
 
 
@@ -46,6 +47,7 @@ function App() {
                 <Route path="/create-post" element={<CreatePost />} />
                 <Route path="/register-user" element={<RegisterForm />} />
                 <Route path="/my-profile" element={<MyProfile />} />
+                <Route path="/message-post" element={<Message/>} />
             </Routes>
         </div>
     );
