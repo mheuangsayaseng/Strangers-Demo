@@ -18,7 +18,7 @@ function App() {
             <header className="navigation">
                 <h1>Welcome to Stranger's Things {token ? <p>{user.username}</p> : null}</h1>
                 <h3 className="navLinks">
-                    <Link style={{color:"red"}} to="/users/login">Login</Link>
+                    <Link style={{color:"red"}} to="/">Login</Link>
 
                     {token && (
                         <Link style={{color:"yellow"}} to="/users/me">My Profile</Link>
@@ -35,14 +35,14 @@ function App() {
                         onClick={()=> {
                             setToken(null);
                             localStorage.removeItem("token");
-                            navigate("/users/login");
+                            navigate("/");
                         }}
                     >Log Out</button>
                     )}
                 </h3>
             </header>
             <Routes>
-                <Route path="/users/login" element={<LoginForm />} />
+                <Route path="/" element={<LoginForm />} />
                 <Route path="/posts" element={<AllPost />} />
                 <Route path="/create-post" element={<CreatePost />} />
                 <Route path="/users/register" element={<RegisterForm />} />

@@ -26,7 +26,7 @@ export default function MyProfile() {
                         <div className="message-card" key={message._id}>
                             <h2 className="fromUser-name">From: {message.fromUser.username}</h2>
                             <h3 className="message-content">Message:</h3> <p className="content-message">{message.content}</p>
-                            <h4 className="relavent-post">Post: {message.post.title}</h4>
+                            <h4 className="relavent-post"><span>Post: {message.post.title}</span> Author: {message.post.author.username}</h4>
                     </div>
                     )
                 })}
