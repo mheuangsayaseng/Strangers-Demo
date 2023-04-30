@@ -7,6 +7,7 @@ import AllPost from "./components/AllPosts";
 import CreatePost from "./components/CreatePost";
 import Message from "./components/MessagePost";
 import useAuth from "./hooks/useAuth";
+import AllPosts from "./components/AllPosts";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
             </header>
             <Routes>
                 <Route path="/" element={<LoginForm />} />
-                <Route path="/posts" element={<AllPost />} />
+                <Route path="/posts" element={<AllPosts />} />
                 <Route path="/create-post" element={<CreatePost />} />
                 <Route path="/users/register" element={<RegisterForm />} />
                 <Route path="/users/me" element={<MyProfile />} />

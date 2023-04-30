@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { fetchMe } from "../api"
-// import { deletePosts } from "../api";
+import { deletePosts } from "../api";
 import useAuth from "../hooks/useAuth"
 
 export default function MyProfile() {
@@ -20,7 +20,7 @@ export default function MyProfile() {
         <div className="main-page">
             
             <div className="my-messages">
-                <h1 className="message-intro">Message Board / My Posts</h1>
+                <h1 className="message-intro">Message Board</h1>
                 {messages.map((message) => {
                     return (
                         <div className="message-card" key={message._id}>
@@ -33,11 +33,26 @@ export default function MyProfile() {
             </div>
 
             <div className="my-posts">
+            <h1 className="post-intro">Post History</h1>
                 {posts.map((post) => {
-                    
                     return (
                         <div className="my-card" key={post._id}>
-                            <h3 className="my-title" style={{backgroundColor:"darkblue", color:"white"}}>{post.title}</h3>
+                            <h3 className="my-title" style={{backgroundColor:"darkblue", color:"white"}}>
+                            <span>{post.title}</span>
+                            <i 
+                                style={{padding:"5px", fontSize:"20px", color:"gold"}} 
+                                className="material-icons"
+                                onClick={async (e) => {
+                                    e.preventDefault();
+                                    await deletePosts(token, post._id);
+                                    const response = await setPosts();
+                                    if(response.success) {
+                                        setPosts(response.data.posts);
+                                    } else {
+                                        setError(response.error);
+                                    }
+                                }}>delete_outline</i>
+                            </h3>
                             <p className="my-description" style={{height:"60px"}}> {post.description}</p>
                             <h4 className="my-price" style={{backgroundColor:"darkblue", color:"gold"}}>Price: {post.price}</h4>
                         </div>
